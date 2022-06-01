@@ -1,40 +1,29 @@
+{% extends "app_coder/padre.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./templates/style.css">
-    <title>Profesor</title>
+{% block contenidoQueCambia %}
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-body{
-    background-color: #64aeee;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-h1{
-    text-align: center;
-    color: rgb(255, 255, 255);
-    padding: 1rem;
-    width: fit-content;
-    margin: auto;
-    border-radius: 0.5rem;
-}
-h1:hover{
-    background-color: #576fe8;
-    color: #000;
-}
+        header{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
-</head>
-<body>
-    <h1>Bienvenido a la pestaña profesor</h1>
-</body>
-</html>
+    <section style="margin: 1rem; display: flex;flex-direction: column; justify-content: center;align-items: center;">
+        <h1>AGREGAR PROFESOR</h1>
+        {% if miFormulario.errors %}
+
+        <p style="color: red;"> Están mal los datos, revisar.</p>
+
+        {% endif %}
+    
+        <form action="" method="POST">{% csrf_token %} 
+            <table>
+                {{ miFormulario.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+        </form>   
+    </section>
+{% endblock %}
 
