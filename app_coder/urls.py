@@ -10,6 +10,6 @@ urlpatterns = [
     path('inicio', views.index, name="Inicio"),
     # path('cursoFormulario', views.cursoFormulario, name="CursoFormulario"),
     # path('profesorFormulario', views.profesorFormulario, name="ProfesorFormulario"),
-    path('busquedaCamada', views.busquedaCamada, name="BusquedaCamada"),
+    path('busquedaCurso', views.busquedaCurso, name="BusquedaCurso"),
     path('buscar/', views.buscar)
 ]

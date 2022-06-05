@@ -1,5 +1,4 @@
 {% extends "app_coder/padre.html" %}
-<<<<<<< HEAD
 
 {% load static %}
 
@@ -23,36 +22,3 @@
 {% endblock %}
 
 
-=======
-
-{% load static %}
-
-{% block contenidoQueCambia %}
-    <style>
-        header{
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
-    <section style="margin: 1rem; display: flex;flex-direction: column; justify-content: center;align-items: center;">
-        <h1>AGREGAR CURSOS</h1>
-    
-        {% if miFormulario.errors %}
-            <p style="color: red;">Estan mal los datos, revisar</p>
-        {% endif %}
-    
-        <form action="" method="POST"> {% csrf_token %}
-            <table>
-                {{ miFormulario.as_table }}
-            </table>
-            <input type="submit" value="Enviar">
-        </form>
-    </section>
-
-{% endblock %}
-
-
->>>>>>> dc378bc90ed5c343e8ddb60e9f77e178ef9f84ce
