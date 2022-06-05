@@ -1,40 +1,20 @@
+{% extends "app_coder/padre.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./templates/style.css">
-    <title>Estudiantes</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-body{
-    background-color: #e88e96;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
+{% block contenidoQueCambia %}
+    <section class="cont">
+        <h1 class="title">AGREGAR ESTUDIANTES</h1>
+        {% if miFormulario.errors %}
 
-h1{
-    text-align: center;
-    color: #fff;
-    padding: 1rem;
-    width: fit-content;
-    margin: auto;
-    border-radius: 0.5rem;
-}
-h1:hover{
-    background-color: #ffcbce;
-    color: #000;
-}
-    </style>
-</head>
-<body>
-    <h1>Bienvenido a estudiantes</h1>
-</body>
-</html>
+        <p style="color: red;"> Están mal los datos, revisar.</p>
+
+        {% endif %}
+
+        <form action="" method="POST">{% csrf_token %} 
+            <table class="table">
+                {{ miFormulario.as_table }}
+            </table>
+            <input class="busqueda__button" type="submit" value="Enviar">
+        </form>   
+    </section>
+{% endblock %}
 
