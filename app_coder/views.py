@@ -11,11 +11,6 @@ from app_coder.forms import CursoFormulario, ProfesorFormulario, EstudianteFormu
 
 # def cursos(request):
 #     return render(request, "app_coder/cursos.html")
-from django.shortcuts import redirect
-
-def redirect_view(request):
-    response = redirect('/app_coder/inicio')
-    return response
 
 def estudiantes(request):
     if request.method == "POST":
@@ -32,7 +27,7 @@ def estudiantes(request):
 
     return render(request, "app_coder/estudiantes.html", {"miFormulario":miFormulario})
 
-
+# comentario
 
 # def profesor(request):
 #     return render(request, "app_coder/profesor.html")
@@ -76,18 +71,18 @@ def profesor(request):
         return render(request, "app_coder/profesor.html", {"miFormulario":miFormulario})
 
 
-def busquedaCurso(request):
-    return render(request, 'app_coder/busquedaCurso.html')
+def busquedaCamada(request):
+    return render(request, 'app_coder/busquedaCamada.html')
 
 def buscar(request):
     if request.GET['camada']:
         camada = request.GET['camada']
         cursos = Curso.objects.filter(camada__icontains=camada)
-        return render(request, "app_coder/busquedaCurso.html", {"cursos":cursos, "camada":camada})
+        return render(request, "app_coder/busquedaCamada.html", {"cursos":cursos, "camada":camada})
 
     else: 
         respuesta = "No enviaste datos"
 
     # respuesta = f"Estoy buscando la camada nro: {request.GET['camada']}"
     # return HttpResponse(respuesta)
-    return render(request, "app_coder/busquedaCurso.html", {"respuesta":respuesta})
+    return render(request, "app_coder/busquedaCamada.html", {"respuesta":respuesta})
